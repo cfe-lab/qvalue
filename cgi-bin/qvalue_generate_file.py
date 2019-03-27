@@ -1,19 +1,22 @@
-#!/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/python
+#!/lib/anaconda3/bin/python3.7
 
 # Start html output.
-print ("Content-type: text/html \n")  # Note: This is 2.7 and 3.6 compatible.
+print ( "Content-type: text/html \n" )  # Note: This is 2.7 and 3.6  compatible.
 print ( "<html><head>" )
 print ( "<title>Results</title>" ) 
 print ( "</head><body>" )
 
 import re, cgi, sys
 
-sys.path.append("/Users/B_Team_iMac/anaconda/pkgs/scipy-0.14.0-np19py27_0/lib/python2.7/site-packages/")  # Add the path to scipy.
-sys.path.append("/Users/B_Team_iMac/anaconda/pkgs/numpy-1.9.0-py27_0/lib/python2.7/site-packages/")  # Add the path to numpy.
-sys.path.append("/Users/B_Team_iMac/Sites/cgi-bin/python_dependencies/libraries/")  # Add path to qvalue.
+CGI_BIN_PATH = "/var/www/cgi-bin"
+PKGS_PATH = "/lib/anaconda3/pkgs"
+
+sys.path.append( "{}/scipy-0.14.0-np19py27_0/lib/python3.7/site-packages/".format(PKGS_PATH) )  # Add the path to scipy.
+sys.path.append( "{}/numpy-base-1.9.0-py27_0/lib/python3.7/site-packages/".format(PKGS_PATH) )  # Add the path to numpy.
+sys.path.append( "{}/depend/libraries/".format(CGI_BIN_PATH) )  # Add path to qvalue.
 import qvalue  # qvalue uses scipy and numpy.  
 
-sys.path.append("/Users/B_Team_iMac/Sites/cgi-bin/python_dependencies/util_scripts/") 
+sys.path.append( "{}/depend/util_scripts/".format(CGI_BIN_PATH) ) 
 import math_utils  # Does it use this?
 
 
@@ -34,7 +37,8 @@ if pvalue_string.find('\n') == -1 and pvalue_string.find('\r') == -1:
 if pvalue_string.find('.') == -1:
 	print ( "<b><r style=\"color: orange;\">Warning:</r> Could not find any '.' characters,</b> did you format your input correctly?<br>" )
 
-# Convert pvalue list to float.
+# Convert pvalue list to float.:0
+
 try: 
 	pvalue_list = [ float(item) for item in pvalue_string.replace('\r', '\n').replace("\n\n", '\n').split('\n') if item != '' ]
 except ValueError:
@@ -70,11 +74,11 @@ print ( qvalue_list )
 
 #Temp start
 
-sys.path.append("/Users/B_Team_iMac/Sites/cgi-bin/python_dependencies/libraries/")  # Add the path to openpyxl, (excel files.)
+sys.path.append( "{}/depend/libraries/".format(CGI_BIN_PATH) )  # Add the path to openpyxl, (excel files.)
 from openpyxl import Workbook
 import openpyxl
 
-sys.path.append("/Users/B_Team_iMac/Sites/cgi-bin/python_dependencies/util_scripts/")
+sys.path.append( "{}/depend/util_scripts/".format(CGI_BIN_PATH) )
 import mailer
 
 XLSX_FILENAME = "out_file"
