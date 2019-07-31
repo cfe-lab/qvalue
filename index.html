@@ -8,13 +8,13 @@
 <div class="top_header"></div>
 
 <div class="middle_content">
-	<h1>q-value calculator (<a href="http://brockman-srv.mbb.sfu.ca/~B_Team_iMac/wiki/index.php/Useful_Tools">Return to main menu</a>)</h1>
+	<h1>q-value calculator (<a href="https://bblab-hivresearchtools.ca/wiki/">Return to main menu</a>)</h1>
 
 	<p><b>Instructions:</b> Copy and paste your p-values into the text field. A file will then be generated with q-values using methods described by Storey (2003). You can then directly open this file, select all, and copy/paste into excel (As the results are returned in the same order) - or you can just import the file.</p>
 
 <p><i>Tips for getting q-values into excel fast: to select all + copy/paste in mac, open the q-value file, enter CMD-A (Both keys at once) to select all, CMD-C to copy, open Excel, and press CMD-V to paste. For windows, control-A, control-C, control-V.</i></p>
 
-	<form name="myForm" method="post" action="cgi-bin/python/qvalue_generate_file.py">
+	<form name="myForm" method="post" action="cgi-bin/qvalue_generate_file.py">
 		<textarea class="queryField" id="pValues" name="pValues">0.51
 0.01
 0.12
