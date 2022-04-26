@@ -1,5 +1,7 @@
 # qvalue
 
+*__Note: Archived, this repo is for reference only. See [`bblab-server`](https://github.com/cfe-lab/bblab-server) for current implementation__*
+
 Converts p-values into q-values using methods described by Storey (2003)[^1].
 
 [^1]: Storey JD. (2003) The positive false discovery rate: A Bayesian interpretation and the q-value. Annals of Statistics, 31: 2013-2035.
